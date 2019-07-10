@@ -23,7 +23,7 @@ class ObjectOnPlane:
         a = (F + Ftr) / m
         if a * v < 0:  # result force and speed are opposed
             tStop = -v / a
-            print("tstop %f; Ftr = %f; a = %f" % (tStop, Ftr, a))
+            # print("tstop %f; Ftr = %f; a = %f" % (tStop, Ftr, a))
             if tStop < dt:  # stop before dt runs out
                 xStop = x + location(v, a, tStop)
                 if abs(Ftr) >= abs(F):
@@ -31,7 +31,7 @@ class ObjectOnPlane:
                 Ftr = copysign(Ftr, -F)
                 a = (F + Ftr) / m
                 t = dt - tStop
-                print("t = %f; a = %f; Ftr = %f " % (t, a, Ftr))
+                # print("t = %f; a = %f; Ftr = %f " % (t, a, Ftr))
                 return (xStop + location(0, a, t), speed(a, t))
         return (x + location(v, a, dt), v + speed(a, dt))
 
